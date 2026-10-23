@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+
+- **King & Worthington (2026) is the sixth human-in-the-loop anchor in the README (#1001, #1002).** *AI Article Reviews Dominate Human Peer Reviews at Their Best* compares Claude Opus 4.8 reviews, one per manuscript in each of two conditions, with paid expert reviews of the same 124 manuscripts. The new paragraph in the three READMEs that carry the section (en, zh-TW, es-ES) reports the head-to-head result, the two findings that bear on ARS's reviewer (additional sources without retrieval; AI claims contradicted by the manuscript), the paper's warning about revising for a published prompt, and its limits, including that its results "do not speak to" publication decisions. The two measurements it motivates are tracked as #1001 and #1002. No prompt, schema, lint, or runtime change.
+
 ### Fixed
 
 - **The SessionStart announce shows the user what is meant for the user (#999).** `scripts/announce-ars-loaded.sh` sent everything through `additionalContext`, which reaches only the model, so the #544 update reminder never reached the user. Startup and clear now also set `systemMessage`: a one-line loaded notice, preceded by the update reminder when one is available. The model-facing startup announce replaces the 16-row command table, the agent table, and the token-budget line with one line of command names and one line of agent names (about 2.1 KB less per session); the command-invariants lint still checks every `/ars-*` token and the count. The skill-routing paragraph and the routing core are unchanged. Three tests in `scripts/test_ars_update_check.py` pin the new field.
